@@ -4,6 +4,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
 import org.sciborgs1155.dashboard.BorderNodes.TitleBar.TitleBar;
 
 /** Contains all of the elements within the {@link ScoralScene scoral scene}. */
@@ -24,5 +25,8 @@ public class ScoralRootPane extends BorderPane {
     this.setTop(titleBar);
     this.minWidthProperty().bind(titleBar.minWidthProperty());
     this.minHeightProperty().bind(titleBar.minHeightProperty().add(30));
+
+    stage.minHeightProperty().bind(this.minHeightProperty());
+    stage.minWidthProperty().bind(this.minWidthProperty());
   }
 }

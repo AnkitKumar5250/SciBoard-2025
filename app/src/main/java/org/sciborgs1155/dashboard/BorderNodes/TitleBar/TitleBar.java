@@ -51,8 +51,6 @@ public class TitleBar extends HBox {
     this.setAlignment(Pos.CENTER_RIGHT);
     this.setViewOrder(-1);
 
-    this.setMinHeight(stage.getHeight() / 10);
-
     this.setOnMousePressed(
         event -> {
           mouseXOffset = event.getSceneX();
@@ -103,6 +101,7 @@ public class TitleBar extends HBox {
                 Duration.millis(100),
                 closeButton));
 
-    this.minWidthProperty().bind(this.minimizeButton.minWidthProperty().multiply(3));
+    this.minWidthProperty().bind(this.minimizeButton.prefWidthProperty().add(this.maximizeButton.prefWidthProperty()).add(this.closeButton.prefWidthProperty()).add(this.spacingProperty()));
+    this.setMinHeight(stage.getHeight() / 10);
   }
 }

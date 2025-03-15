@@ -19,15 +19,12 @@ public class App extends Application {
     stage.setWidth(Screen.getPrimary().getVisualBounds().getWidth() / 2);
     stage.setHeight(Screen.getPrimary().getVisualBounds().getHeight() / 2);
 
-    stage.setMinWidth(stage.getWidth() / 10);
-    stage.setMinHeight(stage.getHeight() / 10);
-
     stage.setTitle("SciBoard 2025");
     stage.getIcons().add(Assets.getImage("SciborgIcons/sciborgDisconnected.png"));
 
     stage.setScene(new ScoralScene(stage));
-    stage.setResizable(true);
 
+    stage.setResizable(true);
     stage.setMaximized(true);
     stage.show();
 

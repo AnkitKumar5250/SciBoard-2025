@@ -1,5 +1,7 @@
 package org.sciborgs1155.dashboard.ScoralTab;
 
+import org.sciborgs1155.dashboard.BorderNodes.Resizing.StageResizer;
+
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -14,11 +16,10 @@ public class ScoralScene extends Scene {
    *
    * @param stage The {@link Stage stage} to copy the {@link #widthProperty() width} and {@link
    *     #heightProperty() height} of.
-   * @param mainPane The {@link ScoralRootPane pane} to pass as the {@link #rootProperty() root} of
-   *     this {@link Scene scene}.
    */
   public ScoralScene(Stage stage) {
-    // Background is transparent to allow rounded corners, if needed.
-    super(new ScoralRootPane(stage), stage.getWidth(), stage.getHeight(), Color.TRANSPARENT);
+    super(new StageResizer(stage, new ScoralRootPane(stage)), stage.getWidth(), stage.getHeight(), Color.TRANSPARENT);
   }
+
+  
 }
