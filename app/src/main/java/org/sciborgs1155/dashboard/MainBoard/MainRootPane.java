@@ -12,6 +12,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import org.sciborgs1155.dashboard.BorderNodes.SideBar.SideBar;
 import org.sciborgs1155.dashboard.BorderNodes.TitleBar.TitleBar;
 
 /** Contains all of the elements within the {@link MainScene main scene}. */
@@ -22,6 +24,14 @@ public class MainRootPane extends BorderPane {
   /** Lines the top of the pane, allows for window drag and manipulative functionality. */
   public final Property<TitleBar> titleBarProperty() {
     return this.titleBar;
+  }
+
+  /** Further details in {@link #sideBarProperty() the getter method}. */
+  private final Property<SideBar> sideBar = new SimpleObjectProperty<SideBar>(this, "Side Bar");
+
+  /** Lines the side of the pane, Allows for board-switching. */
+  public final Property<SideBar> sideBarProperty() {
+      return this.sideBar;
   }
 
   /** Further details in {@link #backgroundColorProperty() the getter method} */
@@ -55,6 +65,7 @@ public class MainRootPane extends BorderPane {
    */
   public MainRootPane(Stage stage) {
     this.titleBarProperty().setValue(new TitleBar(stage));
+    this.sideBarProperty().setValue(new SideBar(stage));
 
     this.titleBarProperty()
         .getValue()
@@ -135,6 +146,7 @@ public class MainRootPane extends BorderPane {
             });
 
     this.topProperty().bind(this.titleBarProperty());
+    this.leftProperty().bind(this.sideBarProperty());
     this.backgroundColorProperty().setValue(Color.BLACK);
 
     this.minWidthProperty().bind(this.titleBarProperty().getValue().minWidthProperty());
