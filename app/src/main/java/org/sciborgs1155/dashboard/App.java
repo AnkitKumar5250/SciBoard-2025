@@ -4,8 +4,8 @@ import javafx.application.Application;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.sciborgs1155.dashboard.MainBoard.MainScene;
 import org.sciborgs1155.dashboard.Network.Server;
-import org.sciborgs1155.dashboard.ScoralTab.ScoralScene;
 import org.sciborgs1155.dashboard.Utils.Assets;
 
 /** Main class for starting the app. */
@@ -15,6 +15,7 @@ public class App extends Application {
   public void start(Stage stage) {
     /** Removes the default title bar */
     stage.initStyle(StageStyle.UNDECORATED);
+    stage.initStyle(StageStyle.TRANSPARENT);
 
     stage.setWidth(Screen.getPrimary().getVisualBounds().getWidth() / 2);
     stage.setHeight(Screen.getPrimary().getVisualBounds().getHeight() / 2);
@@ -22,7 +23,7 @@ public class App extends Application {
     stage.setTitle("SciBoard 2025");
     stage.getIcons().add(Assets.getImage("SciborgIcons/sciborgDisconnected.png"));
 
-    stage.setScene(new ScoralScene(stage));
+    stage.setScene(new MainScene(stage));
 
     stage.setResizable(true);
     stage.setMaximized(true);
